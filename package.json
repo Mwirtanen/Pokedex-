@@ -1,0 +1,19 @@
+{
+  "name": "pokedex-",
+  "version": "1.0.0",
+  "description": "Group work project for TUAS server-programming course.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mwirtanen/Pokedex-.git"
+  },
+  "author": "Kim Rosengren, Siiri Ylönen, Viljami Ruokonen, Miikka Wirtanen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mwirtanen/Pokedex-/issues"
+  },
+  "homepage": "https://github.com/Mwirtanen/Pokedex-#readme"
+}
