@@ -1,4 +1,4 @@
-const User = require("../models.user");
+const User = require("../models/user");
 
 const getUserParams = (body) => {
     return {
@@ -6,7 +6,7 @@ const getUserParams = (body) => {
         email: body.email,
         password: body.password,
         pokemons: body.pokemons
-    }
+    };
 };
 
 module.exports = {
@@ -66,7 +66,7 @@ module.exports = {
     update: (req, res, next) => {
         let userId = req.params.id;
         let userParams = {
-            username = req.body.name,
+            username: req.body.username,
             email: req.body.email,
             password: req.body.password,
             pokemons: req.body.pokemons
