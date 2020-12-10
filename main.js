@@ -29,6 +29,8 @@ const express = require("express"),
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
 
+app.use(layouts);
+
 app.get("/", (req, res) => {
     res.render("index");
 });
