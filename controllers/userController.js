@@ -12,21 +12,21 @@ const getUserParams = (body) => {
 module.exports = {
 
     register: (req, res) => {
-        res.render("/reqister");
+        res.render("register");
     },
 
     create: (req, res, next) => {
         let userParams = getUserParams(req.body);
         User.create(userParams)
             .then(user => {
-                res.locals.redirect = "/index";
+                res.locals.redirect = "index";
                 req.flash("success", `${user.first}'s account created successfully!`);
                 res.locals.user = user;
                 next();
             })
             .catch(error => {
                 console.log(`Error saving user: ${error.message}`);
-                res.locals.redirect = "/register";
+                res.locals.redirect = "register";
                 req.flash(
                     "error", `Failed to create user account because: ${error.message}.`
                 );
@@ -48,14 +48,14 @@ module.exports = {
     },
 
     showView: (req, res) => {
-        res.render("/profile");
+        res.render("profile");
     },
 
     edit: (req, res, next) => {
         let userID = req.params.id;
         User.findById(userID)
             .then(user => {
-                res.render("/edit", { user: user })
+                res.render("edit", { user: user })
             })
             .catch(error => {
                 console.log(`Error fetching user by ID: ${error.message}`);
@@ -76,7 +76,7 @@ module.exports = {
             $set: userParams
         })
             .then(user => {
-                res.locals.redirect = `/profile`;
+                res.locals.redirect = `profile`;
                 res.locals.user = user;
                 next();
             })
@@ -90,7 +90,7 @@ module.exports = {
         let userId = req.params.id;
         User.findByIdAndRemove(userId)
             .then(() => {
-                res.locals.redirect = `/index`;
+                res.locals.redirect = `index`;
                 next();
             })
             .catch(error => {
