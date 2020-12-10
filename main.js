@@ -6,24 +6,25 @@ const express = require("express"),
     expressSession = require("express-session"),
     cookieParser = require("cookie-parser"),
     connectFlash = require("connect-flash"),
-
+    pokemons = require('./pokemon')
     homeController = require("./controllers/homeController"),
     userController = require("./controllers/userController");
-
     mongoose.Promise = global.Promise;
-/*
-mongoose.connect(
-    "mongodb://localhost:27017/pokemon_db",
-    { useNewUrlParser: true }
-);
-mongoose.set("useCreateIndex", true);
-    
-const db = mongoose.connection;
-    
-db.once("open", () => {
-    console.log("Successfully connected to MongoDB using Mongoose!");
-});
-*/
+
+    mongoose.connect(
+        'mongodb://localhost:27017/pokemon_db',
+        {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useCreateIndex: true
+        }
+    );
+
+    const db = mongoose.connection;
+
+    db.once('open', () => {
+        console.log('Successfully connected to MongoDB using Mongoose.');
+    });
 
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
