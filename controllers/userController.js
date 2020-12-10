@@ -18,20 +18,20 @@ module.exports = {
     create: (req, res, next) => {
         let userParams = getUserParams(req.body);
         User.create(userParams)
-        .then(user => {
-            res.locals.redirect = "/index";
-            req.flash("success", `${user.first}'s account created successfully!`);
-            res.locals.user = user;
-            next();
-        })
-        .catch(error => {
-            console.log(`Error saving user: ${error.message}`);
-            res.locals.redirect = "/register";
-            req.flash(
-                "error", `Failed to create user account because: ${error.message}.`
-            );
-            next();
-        });
+            .then(user => {
+                res.locals.redirect = "/index";
+                req.flash("success", `${user.first}'s account created successfully!`);
+                res.locals.user = user;
+                next();
+            })
+            .catch(error => {
+                console.log(`Error saving user: ${error.message}`);
+                res.locals.redirect = "/register";
+                req.flash(
+                    "error", `Failed to create user account because: ${error.message}.`
+                );
+                next();
+            });
     },
 
     show: (req, res, next) => {
@@ -54,13 +54,13 @@ module.exports = {
     edit: (req, res, next) => {
         let userID = req.params.id;
         User.findById(userID)
-        .then(user => {
-            res.render("/edit", {user: user})
-        })
-        .catch(error => {
-            console.log(`Error fetching user by ID: ${error.message}`);
-            next(error);
-        });          
+            .then(user => {
+                res.render("/edit", { user: user })
+            })
+            .catch(error => {
+                console.log(`Error fetching user by ID: ${error.message}`);
+                next(error);
+            });
     },
 
     update: (req, res, next) => {
