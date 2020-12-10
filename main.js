@@ -11,22 +11,11 @@ const express = require("express"),
     userController = require("./controllers/userController");
 
     mongoose.Promise = global.Promise;
-/*
-mongoose.connect(
-    "mongodb://localhost:27017/pokemon_db",
-    { useNewUrlParser: true }
-);
-mongoose.set("useCreateIndex", true);
-    
-const db = mongoose.connection;
-    
-db.once("open", () => {
-    console.log("Successfully connected to MongoDB using Mongoose!");
-});
-*/
 
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
+
+app.use(layouts);
 
 app.get("/", (req, res) => {
     res.render("index");

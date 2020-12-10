@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
     <title>Pokedex</title>
 </head>
 <body>
         <div id="nav">
-<!--What do we call the pages and what pages we have-->            
-            <a href="/">
-                <span class="button">Home/Pokemons</span>
-            </a>
+            <%- include ('partials/navigation.ejs'); %>
         </div>
 
         <div class="container">
             <%- body %>
         </div>
-    
+        
+        <div id="footer">
+            <%- include ('partials/footer'); %>
+        </div>
 </body>
 </html>
