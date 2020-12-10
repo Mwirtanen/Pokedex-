@@ -1,8 +1,26 @@
-<div>
-    <h1 id="title">Pokedex</h1>
-</div>
-<div>
+    <% var pokemon_left = Math.floor(Math.random()*810).toString(); %>
+    <% let pokemon_left_len = pokemon_left.length %> 
+    <% for(let i = 0; i< (3 - pokemon_left_len); i++) { %>
+        <% pokemon_left = '0'+pokemon_left; %>
+    <% } %>
+        <% var pokemon_right = Math.floor(Math.random()*810).toString(); %>
+    <% let n = pokemon_right.length %> 
+    <% for(let i = 0; i< (3 - n); i++) { %>
+        <% pokemon_right = '0'+pokemon_right; %>
+    <% } %>
+
+    <h1 id="title">Pokede<span style="font-size: 1.5em;color: tomato;">X</span></h1>
+    <img src="images/<%= pokemon_left %>.png " alt="">
     <a href="/">
         <span class="button">Home</span>
     </a>
-</div>
+    <a href="/">
+        <span class="button">Pokemons</span>
+    </a>
+        <a href="/">
+        <span class="button">Register</span>
+    </a>
+        <a href="/">
+        <span class="button">Login</span>
+    </a>
+    <img src="images/<%= pokemon_right %>.png " alt="">
