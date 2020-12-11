@@ -3,31 +3,103 @@
     src: url("Roboto-Black.ttf") format('truetype');
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+}
 body {
+    height: 100vh;
+    width: 100vw;
     font-family: Roboto;
+}
+.header {
+    text-align: center;
 }
 #title {
     display: inline;
 }
-#nav {
-    padding: 10px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+#title span {
+    font-size: 1.5em;
+    color: tomato;
+    vertical-align: middle;
+    text-shadow: 2px 2px #000;
+}
+.nav {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 14px 16px;
     background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
-}
-#nav img {
-    display: inline-block;
-    width: 5%;
-    height: 5%;
-}
 
-#nav a {
-    margin-top: 40px;
+}
+.topnav {
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 10px;
+
+}
+.topnav img {
+    display: inline-block;
+    object-fit: contain;
+    padding: 15px;
+    width: 10vh;
+    height: auto;
+}
+.leftnav a {
+    display: flex;
+    align-items: center;
+    padding: 15px;
     font-size: 1.5em;
     text-decoration: none;
     color: #fff;
 }
-#nav a:hover {
+.topnav a:hover {
      text-shadow: 2px 2px #000;
+}
+.leftnav {
+    width: 70%;
+    display: flex;
+    justify-content: flex-start;
+    flex: 1;
+    border: black;
+    align-self: baseline;
+}
+.leftnav img {
+    margin-left: 5px;
+}
+.rightnav {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1em;
+}
+.righttext{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+.righttext i {
+    vertical-align: middle;
+}
+.righttext a {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px;
+}
+.footer {
+    width: 100%;
+    bottom: 0;
+    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+    position: fixed;
+}
+#footer {
+    text-align: center;
+    bottom: 0;
+    font-size: 0.8em;
+    font-weight: lighter;
+}
+#footer i {
+    vertical-align: middle;
 }

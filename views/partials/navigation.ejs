@@ -9,18 +9,18 @@
         <% pokemon_right = '0'+pokemon_right; %>
     <% } %>
 
-    <h1 id="title">Pokede<span style="font-size: 1.5em;color: tomato;">X</span></h1>
-    <img src="images/<%= pokemon_left %>.png " alt="">
-    <a href="/">
-        <span class="button">Home</span>
-    </a>
-    <a href="/">
-        <span class="button">Pokemons</span>
-    </a>
-        <a href="/">
-        <span class="button">Register</span>
-    </a>
-        <a href="/">
-        <span class="button">Login</span>
-    </a>
-    <img src="images/<%= pokemon_right %>.png " alt="">
+    <div class="topnav">
+        <div class="leftnav">
+            <h1 id="title">Pokede<span>X</span></h1>
+            <img src="images/<%= pokemon_left %>.png " alt="">
+            <a href="/">Home</a>
+            <a href="/pokemons">Pokemons</a>
+        </div>
+        <div class="rightnav">
+            <div class="righttext">
+                <a href="/register"><i class="material-icons">&#xe890;</i>Register</a>
+                <a href="/login"><i class="material-icons">&#xe8a6;</i>Login</a>
+            </div>
+            <img src="images/<%= pokemon_right %>.png " alt="">
+        </div>
+    </div>
