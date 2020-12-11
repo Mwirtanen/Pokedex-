@@ -17,12 +17,14 @@ body {
 }
 #title {
     display: inline;
+    margin-right: 20px;
 }
 #title span {
-    font-size: 1.5em;
+    font-size: 1.6em;
     color: tomato;
-    vertical-align: middle;
     text-shadow: 2px 2px #000;
+    vertical-align: sub;
+    margin-left: -2px;
 }
 .nav {
     display: flex;
@@ -79,6 +81,7 @@ body {
     display: flex;
     flex-direction: column;
     padding: 15px;
+    margin-top: auto;
 }
 .righttext i {
     vertical-align: middle;
