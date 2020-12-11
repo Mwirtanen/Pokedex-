@@ -1,10 +1,15 @@
 <div class="pokemoncard">
     <div class="pokemonheader">
-    <span>Se on pokemon</span><span></span>
+    <span><%= pokemon.name %> </span><span></span>
 
     </div>
     <div class="pokemonimg">
-        <img src="images/025.png" alt="">
+        <% let number = pokemon.pokemon_index.toString(); %>
+        <% let number_len = number.length %> 
+        <% for(let i = 0; i< (3 - number_len); i++) { %>
+        <% number = '0'+number; %>
+        <% } %>
+        <img src="images/<%= number %>.png" alt="">
     </div>
     <div class="pokemonmain">
 
