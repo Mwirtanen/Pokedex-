@@ -1,11 +1,9 @@
     <% var pokemon_left = Math.floor(Math.random()*810).toString(); %>
-    <% if(pokemon_left == 0) {pokemon_left = '1'} %>
-    <% let pokemon_left_len = pokemon_left.length %>
+    <% let pokemon_left_len = pokemon_left.length %> 
     <% for(let i = 0; i< (3 - pokemon_left_len); i++) { %>
         <% pokemon_left = '0'+pokemon_left; %>
     <% } %>
         <% var pokemon_right = Math.floor(Math.random()*810).toString(); %>
-        <% if(pokemon_right == 0) {pokemon_right = '1'} %> 
     <% let n = pokemon_right.length %> 
     <% for(let i = 0; i< (3 - n); i++) { %>
         <% pokemon_right = '0'+pokemon_right; %>
@@ -20,8 +18,12 @@
         </div>
         <div class="rightnav">
             <div class="righttext">
+                <% if(!loggedIn) { %>
                 <a href="/register"><i class="material-icons">&#xe890;</i>Register</a>
                 <a href="/login"><i class="material-icons">&#xe8a6;</i>Login</a>
+                <% } else { %>
+                 <a href="/logout"><i class="material-icons logout">&#xe890;</i><%= currentUser.username %>  Logout</a>
+                <% } %> 
             </div>
             <img src="images/<%= pokemon_right %>.png " alt="">
         </div>

@@ -30,6 +30,9 @@ button:hover {
     display: flex;
     justify-content: center;
 }
+.form div {
+    padding-bottom: 20px;
+}
 /* Navigation */
 #title {
     display: inline;
@@ -120,4 +123,10 @@ button:hover {
 }
 #footer i {
     vertical-align: middle;
+}
+.logout {
+    transform: rotate(180deg);
+}
+.material-icons {
+    margin-right: 5px;;
 }

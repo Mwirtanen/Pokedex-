@@ -84,6 +84,10 @@ router.get("/pokemons", homeController.pokemon);
 
 router.get("/register", userController.register);
 router.get("/login", userController.login);
+router.get("/logout", userController.logout, userController.redirectView);
+router.post("/login", userController.authenticate);
+
+
 router.post("/register/create", userController.create, userController.redirectView);
 
 router.get("/:username/edit", userController.edit);

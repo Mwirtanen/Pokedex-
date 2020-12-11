@@ -1,14 +1,14 @@
 <div class="form">
-    <form class="login" action="/users/login" method="POST">
-        <h2 class="header">Log in using your username and password:</h2>
+    <form class="login" action="/login" method="POST">
+        <h2 class="header">Login:</h2>
         <div>
-            <label for="inputUsername">Username</label>
-            <input type="text" name="username" id="inputUsername" placeholder="Username" autofocus />
+            <label for="inputEmail">Email address</label>
+            <input type="email" name="email" id="inputEmail" placeholder="Email address" autofocus required />
         </div>
         <div>
             <label for="inputPassword">Password</label>
             <input type="password" name="password" id="inputPassword" placeholder="Password" required />
         </div>
-        <button type="submit">Log in</button>
+        <button type="submit">Login</button>
     </form>
 </div>
