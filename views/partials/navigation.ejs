@@ -1,9 +1,11 @@
     <% var pokemon_left = Math.floor(Math.random()*810).toString(); %>
-    <% let pokemon_left_len = pokemon_left.length %> 
+    <% if(pokemon_left == 0) {pokemon_left = '1'} %>
+    <% let pokemon_left_len = pokemon_left.length %>
     <% for(let i = 0; i< (3 - pokemon_left_len); i++) { %>
         <% pokemon_left = '0'+pokemon_left; %>
     <% } %>
         <% var pokemon_right = Math.floor(Math.random()*810).toString(); %>
+        <% if(pokemon_right == 0) {pokemon_right = '1'} %> 
     <% let n = pokemon_right.length %> 
     <% for(let i = 0; i< (3 - n); i++) { %>
         <% pokemon_right = '0'+pokemon_right; %>
