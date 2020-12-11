@@ -15,7 +15,15 @@ module.exports = {
     register: (req, res) => {
         res.render("register");
     },
-
+    login: (req, res) => {
+        res.render('login')
+    },
+    authenticate: passport.authenticate('local', {
+        failureRedirect: '/login',
+        failureFlash: 'Failed to login',
+        successFlash: 'Logged in.',
+        successRedirect: '/'
+    }),
     create: (req, res, next) => {
         let newUser = new User(getUserParams(req.body));
 

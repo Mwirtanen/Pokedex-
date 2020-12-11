@@ -82,6 +82,9 @@ router.get("/", (req, res) => {
 router.get("/", homeController.index);
 
 router.get("/register", userController.register);
+router.get("/login", userController.login);
+router.post("/login", userController.authenticate);
+
 
 router.post("/register/create", userController.create, userController.redirectView);
 //app.post("/create", userController.create, userController.redirectView);

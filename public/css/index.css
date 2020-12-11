@@ -106,3 +106,9 @@ body {
 #footer i {
     vertical-align: middle;
 }
+.logout {
+    transform: rotate(180deg);
+}
+.material-icons {
+    margin-right: 5px;;
+}

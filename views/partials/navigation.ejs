@@ -20,8 +20,12 @@
         </div>
         <div class="rightnav">
             <div class="righttext">
+                <% if(!loggedIn) { %>
                 <a href="/register"><i class="material-icons">&#xe890;</i>Register</a>
                 <a href="/login"><i class="material-icons">&#xe8a6;</i>Login</a>
+                <% } else { %>
+                 <a href="/login"><i class="material-icons logout">&#xe890;</i><%= currentUser.username %>  Logout</a>
+                <% } %> 
             </div>
             <img src="images/<%= pokemon_right %>.png " alt="">
         </div>
