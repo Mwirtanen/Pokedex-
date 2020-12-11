@@ -1,3 +1,5 @@
 <div class="pokemons">
-    <%- include ('partials/pokemon'); %>
+    <% pokemons.forEach(pokemon => { %>
+        <%- include ('partials/pokemon', { pokemon: pokemon }); %>
+    <% }) %> 
 </div>
