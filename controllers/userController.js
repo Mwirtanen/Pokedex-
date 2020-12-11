@@ -1,4 +1,5 @@
-const User = require("../models/user");
+const User = require("../models/user"),
+    passport = require('passport');
 
 const getUserParams = (body) => {
     return {
@@ -16,24 +17,20 @@ module.exports = {
     },
 
     create: (req, res, next) => {
-        let userParams = getUserParams(req.body);
-        User.create(userParams)
-            .then(user => {
-                res.locals.redirect = "index";
-                req.flash("success", `${user.first}'s account created successfully!`);
-                res.locals.user = user;
-                next();
-            })
-            .catch(error => {
-                console.log(`Error saving user: ${error.message}`);
-                res.locals.redirect = "register";
-                req.flash(
-                    "error", `Failed to create user account because: ${error.message}.`
-                );
-                next();
-            });
-    },
+        let newUser = new User(getUserParams(req.body));
 
+        User.register(newUser, req.body.password, (error, user) => {
+            if (user) {
+                req.flash('success', `${user.fullName}'s account created successfully!`);
+                res.locals.redirect = '/index';
+                next();
+            } else {
+                req.flash('error', `Failed to create user account because: ${error}`);
+                res.locals.redirect = '/register';
+                next();
+            }
+        })
+    },
     show: (req, res, next) => {
         let userId = req.params.id;
         User.findById(userId)
@@ -97,6 +94,11 @@ module.exports = {
                 console.log(`Error deleting user by ID: ${error.message}`);
                 next();
             });
+    },
+    redirectView: (req, res, next) => {
+        let redirectPath = res.locals.redirect;
+        if (redirectPath) res.redirect(redirectPath);
+        else next();
     }
 
 };
