@@ -1,5 +1,6 @@
 <div class="pokemons">
     <% pokemons.forEach(pokemon => { %>
-        <%- include ('partials/pokemon', { pokemon: pokemon }); %>
+        <% if(pokemon.type[0]) {var color = pokemon.type[0]; } else { var color = 'Normal';} %>
+        <%- include ('partials/pokemon', { pokemon: pokemon, color: colors[color]}); %>
     <% }) %> 
 </div>
