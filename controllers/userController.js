@@ -15,7 +15,9 @@ module.exports = {
     register: (req, res) => {
         res.render("register");
     },
-
+    login: (req, res) => {
+        res.render("login");
+    },
     create: (req, res, next) => {
         let newUser = new User(getUserParams(req.body));
 

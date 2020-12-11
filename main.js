@@ -56,6 +56,7 @@ router.use(expressSession({
     resave: false,
     saveUninitialized: false
 }));
+
 router.use(passport.initialize());
 router.use(passport.session());
 router.use(connectFlash());
@@ -66,7 +67,6 @@ router.use((req, res, next) => {
     res.locals.flashMessages = req.flash();
     next();
 });
-
 
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
@@ -80,13 +80,14 @@ router.get("/", (req, res) => {
 
 
 router.get("/", homeController.index);
+router.get("/pokemons", homeController.pokemon);
 
 router.get("/register", userController.register);
-
+router.get("/login", userController.login);
 router.post("/register/create", userController.create, userController.redirectView);
-//app.post("/create", userController.create, userController.redirectView);
+
 router.get("/:username/edit", userController.edit);
-//app.put("/:username/update", userController.update, userController.redirectView);
+router.put("/:username/update", userController.update, userController.redirectView);
 router.get("/:username", userController.show, userController.showView);
 
 app.listen(app.get("port"), () => {

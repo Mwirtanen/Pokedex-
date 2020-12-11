@@ -14,12 +14,12 @@
             <%= user.email %>
         </td>
     </tr>
-    <tr>
+<!--    <tr>
         <th>Pokemons</th>
         <td>
             <%= user.pokemons %>
         </td>
-    </tr>
+    </tr> --->
 </table>
 
 <div>
@@ -27,7 +27,7 @@
 </div>
 
 <div>
-    <a class="button" href="<%=`/users/${user._id}/edit`%>">
+    <a class="button" href="<%=`/${user._id}/edit`%>">
         Edit User Details
     </a>
 </div>
