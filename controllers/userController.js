@@ -1,5 +1,5 @@
 const User = require("../models/user"),
-    passport = require('passport');
+    passport = require("passport");
 
 const getUserParams = (body) => {
     return {
@@ -16,7 +16,7 @@ module.exports = {
         res.render("register");
     },
     login: (req, res) => {
-        res.render('login')
+        res.render("login")
     },
     authenticate: passport.authenticate('local', {
         failureRedirect: '/login',
