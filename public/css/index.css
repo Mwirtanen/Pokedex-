@@ -103,3 +103,13 @@ body {
 #footer i {
     vertical-align: middle;
 }
+div.form
+{
+    display: block;
+    text-align: center;
+}
+form
+{
+    display: inline-block;
+    text-align: left;
+}
