@@ -1,8 +1,6 @@
 <div class="form">
-
-    <form class="form-login" action="/login" method="POST">
-
-        <h2 class="header">Login to Pokedex:</h2>
+    <form class="login" action="/users/login" method="POST">
+        <h2 class="header">Log in using your username and password:</h2>
         <div>
             <label for="inputUsername">Username</label>
             <input type="text" name="username" id="inputUsername" placeholder="Username" autofocus />
@@ -11,8 +9,6 @@
             <label for="inputPassword">Password</label>
             <input type="password" name="password" id="inputPassword" placeholder="Password" required />
         </div>
-        <button type="submit">Login</button>
-
+        <button type="submit">Log in</button>
     </form>
-
 </div>
