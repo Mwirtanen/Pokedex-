@@ -83,6 +83,7 @@ router.get("/", homeController.index);
 
 router.get("/register", userController.register);
 router.get("/login", userController.login);
+router.get("/logout", userController.logout, userController.redirectView);
 router.post("/login", userController.authenticate);
 
 

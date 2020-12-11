@@ -24,6 +24,12 @@ module.exports = {
         successFlash: 'Logged in.',
         successRedirect: '/'
     }),
+    logout: (req, res, next) => {
+        req.logout();
+        req.flash('success', 'You have been logged out!');
+        res.locals.redirect = '/'
+        next()
+    },
     create: (req, res, next) => {
         let newUser = new User(getUserParams(req.body));
 
