@@ -112,3 +112,13 @@ body {
 .material-icons {
     margin-right: 5px;;
 }
+div.form
+{
+    display: block;
+    text-align: center;
+}
+form
+{
+    display: inline-block;
+    text-align: left;
+}
