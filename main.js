@@ -91,7 +91,7 @@ router.post("/user/login", userController.authenticate);
 router.post("/register/create", userController.create, userController.redirectView);
 
 router.get("/:username/edit", userController.edit);
-router.put("/:username/update", userController.update, userController.redirectView);
+router.put("/:id/update", userController.update, userController.redirectView);
 router.get("/profile", userController.showView);
 
 app.listen(app.get("port"), () => {
