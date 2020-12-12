@@ -62,16 +62,8 @@ module.exports = {
         res.render("profile");
     },
 
-    edit: (req, res, next) => {
-        let userID = req.params.id;
-        User.findById(userID)
-            .then(user => {
-                res.render("edit", { user: user })
-            })
-            .catch(error => {
-                console.log(`Error fetching user by ID: ${error.message}`);
-                next(error);
-            });
+    edit: (req, res) => {
+        res.render("edit")
     },
 
     update: (req, res, next) => {

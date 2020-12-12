@@ -90,7 +90,7 @@ router.post("/user/login", userController.authenticate);
 
 router.post("/register/create", userController.create, userController.redirectView);
 
-router.get("/:username/edit", userController.edit);
+router.get("/edit", userController.edit);
 router.put("/:id/update", userController.update, userController.redirectView);
 router.get("/profile", userController.showView);
 
