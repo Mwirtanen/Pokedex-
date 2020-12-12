@@ -33,6 +33,16 @@ button:hover {
 .form div {
     padding-bottom: 20px;
 }
+/* Profile */
+.profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.profile div, .table td, .table th {
+    padding-bottom: 20px;
+}
 /* Navigation */
 #title {
     display: inline;
@@ -108,6 +118,12 @@ button:hover {
     color: #fff;
     padding: 5px;
 }
+.logout {
+    transform: rotate(180deg);
+}
+.material-icons {
+    margin-right: 5px;;
+}
 /* Footer */
 .footer {
     width: 100%;
@@ -124,9 +140,4 @@ button:hover {
 #footer i {
     vertical-align: middle;
 }
-.logout {
-    transform: rotate(180deg);
-}
-.material-icons {
-    margin-right: 5px;;
-}
+

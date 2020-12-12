@@ -1,38 +1,29 @@
-<h1>User Profile for
-    <%= user.username %>
+<h1 class="header">User Profile for
+    <%= currentUser.username %>
 </h1>
+<div class="profile">
 <table class="table">
     <tr>
         <th>Username</th>
         <td>
-            <%= user.username %>
+            <%= currentUser.username %>
         </td>
     </tr>
     <tr>
         <th>Email</th>
         <td>
-            <%= user.email %>
+            <%= currentUser.email %>
         </td>
     </tr>
-<!--    <tr>
-        <th>Pokemons</th>
-        <td>
-            <%= user.pokemons %>
-        </td>
-    </tr> --->
 </table>
 
 <div>
-    <a class="button" href="/users">View all users</a>
-</div>
-
-<div>
-    <a class="button" href="<%=`/${user._id}/edit`%>">
+    <a class="button" href="<%=`/${currentUser._id}/edit`%>">
         Edit User Details
     </a>
 </div>
-
-<!-- <div>
-    <a class="button" href="<%= `/users/${user._id}/delete?_method=DELETE` %>"
+<div>
+    <a class="button" href="<%= `/users/${currentUser._id}/delete?_method=DELETE` %>"
         onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
-</div> -->
+</div>
+</div>
