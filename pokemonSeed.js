@@ -24,8 +24,9 @@ Pokemon.deleteMany()
 pokemons.pokemons.forEach(p => {
     commands.push(
         Pokemon.create({
+            pokemon_index: p.id,
             name: p.name.english,
-            type: p.type,
+            type: [...p.type],
             base: {
                 hp: p.base.HP,
                 attack: p.base.Attack | null,

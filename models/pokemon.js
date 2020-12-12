@@ -2,6 +2,11 @@ const mongoose = require('mongoose'),
     { Schema } = mongoose,
 
 pokemonSchema = new Schema({
+    pokemon_index:{
+        type: Number,
+        required: true,
+        unique: true
+    },
     name: {
         type: String,
         required: true,

@@ -92,7 +92,7 @@ router.post("/register/create", userController.create, userController.redirectVi
 
 router.get("/:username/edit", userController.edit);
 router.put("/:username/update", userController.update, userController.redirectView);
-router.get("/:username", userController.show, userController.showView);
+router.get("/profile", userController.showView);
 
 app.listen(app.get("port"), () => {
     console.log(`Server running listening to port ${app.get("port")}`);

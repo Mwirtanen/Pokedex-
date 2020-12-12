@@ -1,25 +1,31 @@
-<div class="pokemoncard">
+<div class="pokemoncard" style="background: <%= color[1] %>; background: linear-gradient(180deg, <%= color[2] %> 0%, <%= color[3] %> 100%);">
     <div class="pokemonheader">
-    <span>Se on pokemon</span><span></span>
+    <span><%= pokemon.name.slice(0,1).toUpperCase()+pokemon.name.slice(1) %> </span><span>HP <%= pokemon.base.hp %> </span>
 
     </div>
-    <div class="pokemonimg">
-        <img src="images/025.png" alt="">
+    <div class="pokemonimg" style="background:<%= color[4] %>;">
+        <% let number = pokemon.pokemon_index.toString(); %>
+        <% let number_len = number.length %> 
+        <% for(let i = 0; i< (3 - number_len); i++) { %>
+        <% number = '0'+number; %>
+        <% } %>
+        <img src="images/<%= number %>.png" alt="">
     </div>
     <div class="pokemonmain">
-
+       <%=    pokemon.type[0] %>
     </div>
 </div>
+
+ 
+
 <style>
     .pokemoncard {
         display: inline-block;
-        border: 10px solid yellow;
+        border: 10px solid <%= color[0] %>;
         border-radius: 5px;
         margin: 10px;
         width: 300px;
         height: 400px;
-        background: rgb(203,213,72);
-        background: linear-gradient(180deg, rgba(203,213,72,1) 0%, rgba(242,255,0,0.56) 100%);
         -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
         box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
     }
@@ -27,6 +33,9 @@
         position: relative;
         top: 5%;
         left: 10%;
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
     }
     .pokemonimg {
         position: relative;
@@ -37,7 +46,6 @@
         box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
         width: 80%;
         height: 40%;
-        background:#ffff94;
     }
     .pokemonimg img {
         position: relative;
