@@ -14,6 +14,7 @@ body {
 }
 button {
     background-color: tomato;
+    color: #fff;
     border: none;
     padding: 10px 44px;
     font-family: Roboto;
@@ -40,12 +41,30 @@ button:hover {
 /* Profile */
 .profile {
     display: flex;
+    float: left;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 25%;
+    max-width: 200px;
+    padding: 25px;
+    flex-wrap: wrap;
 }
 .profile div, .table td, .table th, .button {
     padding-bottom: 20px;
+}
+.table td {
+    padding-left: 15px;
+}
+.table {
+    text-align: left;
+}
+.pokemons {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.button {
+    display: flex;
+    justify-content: center;
 }
 /* Navigation */
 #title {
