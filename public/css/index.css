@@ -30,6 +30,17 @@ button:hover {
 .header {
     text-align: center;
 }
+/* Flash Messages */
+.flash-success {
+    background-color: lightgreen;
+    padding: 15px;
+    text-align: center;
+}
+.flash-error {
+    background-color: rgb(253, 93, 93);
+    padding: 15px;
+    text-align: center;
+}
 /* Form */
 .form {
     display: flex;

@@ -12,19 +12,19 @@
             <%- include ('partials/navigation.ejs'); %>
         </div>
 
-        <div class="flashes">
-        <% if(flashMessages) { %>
-        <% if(flashMessages.success) { %>
-        <div class="flash success">
-            <%= flashMessages.success %>
+        <div id="flashes">
+            <% if(flashMessages) { %>
+                <% if(flashMessages.success) { %>
+                <div class="flash-success">
+                    <%= flashMessages.success %>
+                </div>
+                <%  } else if (flashMessages.error) { %>
+                <div class="flash-error">
+                    <%= flashMessages.error %>
+                </div>
+                <% } %>
+            <% } %>
         </div>
-        <%  } else if (flashMessages.error) { %>
-        <div class="flash error">
-            <%= flashMessages.error %>
-        </div>
-        <% } %>
-        <% } %>
-    </div>
 
         <div class="container">
             <%- body %>
@@ -33,5 +33,8 @@
         <div class="footer">
             <%- include ('partials/footer'); %>
         </div>
+<script type="text/javascript">
+    window.setTimeout("document.getElementById('flashes').style.display='none';", 3000);
+</script>
 </body>
 </html>
