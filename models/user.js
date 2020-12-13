@@ -1,5 +1,6 @@
 const mongoose = require("mongoose"),
-passportLocalMongoose = require('passport-local-mongoose');
+passportLocalMongoose = require('passport-local-mongoose'),
+{ Schema } = mongoose;
 
 
 userSchema = mongoose.Schema({
@@ -14,9 +15,7 @@ userSchema = mongoose.Schema({
         lowercase: true,
         unique: true
     },
-    pokemons: {
-        type: Array
-    }
+    pokemons: [{type: Schema.Types.ObjectId, ref: 'Pokemon'}]
 });
 
 userSchema.plugin(passportLocalMongoose, {
