@@ -14,19 +14,22 @@
     <div class="pokemonmain">
        <%=    pokemon.type[0] %>
     </div>
+    <% if(currentUser) { %>
     <div class="button" style="    display: none;
     position: relative;
     width: 94%;
     top: 29%;
     z-index: 10;
     margin: auto;" id="<%=`add_button${pokemon.pokemon_index}` %>">
-    <form action="/user/pokemon/<%= pokemon.pokemon_index %>?_method=PUT" method="POST">
+    <form action="/user/<%= currentUser._id %>/pokemon/<%= pokemon._id %>?_method=PUT" method="POST">
         <button type="submit">
             Add me To Your Collection!
         </button>
     </form>
     </div>
+    <% } %> 
 </div>
+<% if(currentUser) { %>
 <script>
     document.getElementById('<%= `pokemon_${pokemon.pokemon_index}` %>').addEventListener('click', showAddButton);
     function showAddButton() {
@@ -37,6 +40,7 @@
             button.style.display = 'block'
     }
 </script>
+<% } %> 
  
 
 <style>

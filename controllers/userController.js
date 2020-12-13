@@ -1,4 +1,5 @@
 const User = require("../models/user"),
+    Pokemon = require('../models/pokemon'),
     passport = require("passport");
 
 const getUserParams = (body) => {
@@ -11,8 +12,34 @@ const getUserParams = (body) => {
 };
 
 module.exports = {
-    addPokemon: (req, res) => {
-        console.log('pookemoon')
+    addPokemon: (req, res, next) => {
+        var pokemon;
+        var user;
+        Pokemon.findById(req.params.id)
+        .then(res => {
+            pokemon = res
+        })
+        .catch(e => {
+            console.log(e);
+            next(e);
+        })
+        .then(() => {
+            User.findById(req.params.user_id)
+            .then(res => {
+                user = res;
+            })
+            .catch(e => {
+                console.log(e);
+                next(e);
+            })
+            .finally(() => {
+                user.pokemons.push(pokemon)
+                user.save()
+                req.flash('success', 'Pokemon added successfully to your collection.')
+                res.locals.redirect = '/profile';
+                next()
+            })
+        })
     },
     register: (req, res) => {
         res.render("register");
