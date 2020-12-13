@@ -68,7 +68,7 @@ button:hover {
 .table {
     text-align: left;
 }
-.pokemons {
+.pokemons-page {
     display: flex;
     justify-content: center;
     width: 100%;
