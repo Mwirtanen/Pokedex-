@@ -1,41 +1,47 @@
 <div class="pokemons-page">
-    <% pokemons.forEach(pokemon => { %>
-    <% if(pokemon.type[0]) {var color = pokemon.type[0]; } else { var color = 'Normal';} %>
-    <%- include ('partials/pokemon', { pokemon: pokemon, color: colors[color]}); %>
-    <% }) %>
-</div>
-<div class="button-group">
-    <div class="button">
-        <% let p_start = parseInt(from_to[0]) - (parseInt(from_to[1])-parseInt(from_to[0])+1) %>
-        <% let p_end = parseInt(from_to[1]) - (parseInt(from_to[1])-parseInt(from_to[0])+1) %>
-        <% if(p_start < 0 | p_end < 0) { %>
-        <button class="disabled">
-            Previous
-        </button>
-        <%  } else { %>
-        <a href="<%=`/pokemons?pokemons=${p_start}-${p_end}`%>">
-            <button>
+    <div class="search">
+        <h1>Search</h1>
+        <input type="text" onchange="" />
+    </div>
+    <div class="cards">
+        <% pokemons.forEach(pokemon => { %>
+        <% if(pokemon.type[0]) {var color = pokemon.type[0]; } else { var color = 'Normal';} %>
+        <%- include ('partials/pokemon', { pokemon: pokemon, color: colors[color]}); %>
+        <% }) %>
+    </div>
+    <div class="button-group">
+        <div class="button">
+            <% let p_start = parseInt(from_to[0]) - (parseInt(from_to[1])-parseInt(from_to[0])+1) %>
+            <% let p_end = parseInt(from_to[1]) - (parseInt(from_to[1])-parseInt(from_to[0])+1) %>
+            <% if(p_start < 0 | p_end < 0) { %>
+            <button class="disabled">
                 Previous
             </button>
-        </a>
+            <%  } else { %>
+            <a href="<%=`/pokemons?pokemons=${p_start}-${p_end}`%>">
+                <button>
+                    Previous
+                </button>
+            </a>
 
-        <% } %>
-    </div>
-    <div class="button">
-        <% let n_start = parseInt(from_to[0]) + parseInt(from_to[1])-parseInt(from_to[0])+1 %>
-        <% let n_end = parseInt(from_to[1]) + parseInt(from_to[1])-parseInt(from_to[0])+1 %>
-        <% n_start = n_start.toString() %>
-        <% n_end = n_end.toString() %>
-        <% if(n_start > 809 | n_end > 809) { %>
-        <button class="disabled">
-            Next
-        </button>
-        <%  } else { %>
-        <a href="<%=`/pokemons?pokemons=${n_start}-${n_end}`%>">
-            <button>
+            <% } %>
+        </div>
+        <div class="button">
+            <% let n_start = parseInt(from_to[0]) + parseInt(from_to[1])-parseInt(from_to[0])+1 %>
+            <% let n_end = parseInt(from_to[1]) + parseInt(from_to[1])-parseInt(from_to[0])+1 %>
+            <% n_start = n_start.toString() %>
+            <% n_end = n_end.toString() %>
+            <% if(n_start > 809 | n_end > 809) { %>
+            <button class="disabled">
                 Next
             </button>
-        </a>
-        <% } %>
+            <%  } else { %>
+            <a href="<%=`/pokemons?pokemons=${n_start}-${n_end}`%>">
+                <button>
+                    Next
+                </button>
+            </a>
+            <% } %>
+        </div>
     </div>
 </div>

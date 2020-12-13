@@ -6,10 +6,11 @@
 html, body {
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 body {
-    height: 100vh;
-   /* width: 100vw; */
+    min-height: 100vh;
+    max-width: 100vw;
     font-family: Roboto;
 }
 button {
@@ -29,6 +30,43 @@ button:hover {
 }
 .header {
     text-align: center;
+}
+.content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+.container {
+    overflow: auto;
+    flex: 1;
+}
+/* Pokemon Page */
+.search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 25px;
+}
+.pokemons-page {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.button {
+    display: flex;
+    justify-content: center;
+}
+.button-group {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.disabled {
+    background-color: #d3d3d3;
+}
+.disabled:hover {
+    cursor: no-drop;
 }
 /* Flash Messages */
 .flash-success {
@@ -68,21 +106,6 @@ button:hover {
 .table {
     text-align: left;
 }
-.pokemons-page {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    flex-wrap: wrap;
-}
-.button {
-    display: flex;
-    justify-content: center;
-}
-.button-group {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-}
 /* Navigation */
 #title {
     display: inline;
@@ -99,6 +122,8 @@ button:hover {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    position: sticky;
+    top: 0;
     padding: 14px 16px;
     background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
 }
@@ -169,7 +194,7 @@ button:hover {
     width: 100%;
     bottom: 0;
     background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
-    position: fixed;
+    position: relative;
 }
 #footer {
     text-align: center;
@@ -180,10 +205,5 @@ button:hover {
 #footer i {
     vertical-align: middle;
 }
-.disabled {
-    background-color: #d3d3d3;
-}
-.disabled:hover {
-    cursor: no-drop;
-}
+
 
