@@ -87,6 +87,7 @@ router.get("/login", userController.login);
 
 router.get("/logout", userController.logout, userController.redirectView);
 router.post("/user/login", userController.authenticate);
+router.put("/user/pokemon/:id", userController.addPokemon);
 
 router.post("/register/create", userController.create, userController.redirectView);
 

@@ -1,4 +1,4 @@
-<div class="pokemoncard" style="background: <%= color[1] %>; background: linear-gradient(180deg, <%= color[2] %> 0%, <%= color[3] %> 100%);">
+<div class="pokemoncard" style="background: <%= color[1] %>; background: linear-gradient(180deg, <%= color[2] %> 0%, <%= color[3] %> 100%);" id="<%= `pokemon_${pokemon.pokemon_index}` %>">
     <div class="pokemonheader">
     <span><%= pokemon.name.slice(0,1).toUpperCase()+pokemon.name.slice(1) %> </span><span>HP <%= pokemon.base.hp %> </span>
 
@@ -14,8 +14,29 @@
     <div class="pokemonmain">
        <%=    pokemon.type[0] %>
     </div>
+    <div class="button" style="    display: none;
+    position: relative;
+    width: 94%;
+    top: 29%;
+    z-index: 10;
+    margin: auto;" id="<%=`add_button${pokemon.pokemon_index}` %>">
+    <form action="/user/pokemon/<%= pokemon.pokemon_index %>?_method=PUT" method="POST">
+        <button type="submit">
+            Add me To Your Collection!
+        </button>
+    </form>
+    </div>
 </div>
-
+<script>
+    document.getElementById('<%= `pokemon_${pokemon.pokemon_index}` %>').addEventListener('click', showAddButton);
+    function showAddButton() {
+        let button = document.getElementById('<%= `add_button${pokemon.pokemon_index}` %>');
+        if(button.style.display == 'block')
+            button.style.display = 'none';
+        else
+            button.style.display = 'block'
+    }
+</script>
  
 
 <style>

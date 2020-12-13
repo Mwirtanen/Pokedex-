@@ -11,7 +11,9 @@ const getUserParams = (body) => {
 };
 
 module.exports = {
-
+    addPokemon: (req, res) => {
+        console.log('pookemoon')
+    },
     register: (req, res) => {
         res.render("register");
     },
