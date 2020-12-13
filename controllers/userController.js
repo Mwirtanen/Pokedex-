@@ -79,7 +79,7 @@ module.exports = {
             $set: userParams
         })
             .then(user => {
-                res.locals.redirect = `profile`;
+                res.locals.redirect = `/profile`;
                 res.locals.user = user;
                 next();
             })

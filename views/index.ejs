@@ -1,4 +1,8 @@
 <div class="header">
     <h1>Welcome to Pokedex!</h1>
+    <% if (!loggedIn) { %>
     <p>Register now to catch all the pokemons!</p>
+    <% } else { %> 
+    <h2><%= currentUser.username %></h2>
+    <% } %>
 </div>
