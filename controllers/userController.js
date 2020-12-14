@@ -147,7 +147,7 @@ module.exports = {
             $set: userParams
         })
             .then(user => {
-                res.locals.redirect = `/profile`;
+                res.locals.redirect = `/profile/${user._id}`;
                 res.locals.user = user;
                 next();
             })
@@ -161,7 +161,7 @@ module.exports = {
         let userId = req.params.id;
         User.findByIdAndRemove(userId)
             .then(() => {
-                res.locals.redirect = `/index`;
+                res.locals.redirect = `/`;
                 next();
             })
             .catch(error => {
