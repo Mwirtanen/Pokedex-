@@ -1,8 +1,8 @@
 const express = require("express"),
     app = express(),
+    router = require('./routes/index'),
     mongoose = require("mongoose"),
     layouts = require("express-ejs-layouts"),
-    router = express.Router(),
     User = require('./models/user'),
     methodOverride = require("method-override"),
     expressSession = require("express-session"),
@@ -11,8 +11,8 @@ const express = require("express"),
     expressValidator = require('express-validator'),
     passport = require('passport'),
     pokemons = require('./pokemon'),
-    homeController = require("./controllers/homeController"),
-    userController = require("./controllers/userController");
+    userController = require('./controllers/userController'),
+    homeController = require("./controllers/homeController");
 
 mongoose.Promise = global.Promise;
 
@@ -34,21 +34,21 @@ db.once('open', () => {
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
 
-router.use(express.static('public'));
-router.use(layouts);
-router.use(
+app.use(express.static('public'));
+app.use(layouts);
+app.use(
     express.urlencoded({
         extended: false
     })
 );
-router.use(express.json());
-router.use(expressValidator());
+app.use(express.json());
+app.use(expressValidator());
 
-router.use(methodOverride('_method', {
+app.use(methodOverride('_method', {
     methods: ['POST', 'GET']
 }));
-router.use(cookieParser('secret_passcode'));
-router.use(expressSession({
+app.use(cookieParser('secret_passcode'));
+app.use(expressSession({
     secret: 'secret_passcode',
     cookie: {
         maxAge: 4000000
@@ -57,11 +57,11 @@ router.use(expressSession({
     saveUninitialized: false
 }));
 
-router.use(passport.initialize());
-router.use(passport.session());
-router.use(connectFlash());
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(connectFlash());
 
-router.use((req, res, next) => {
+app.use((req, res, next) => {
     res.locals.loggedIn = req.isAuthenticated();
     res.locals.currentUser = req.user;
     res.locals.flashMessages = req.flash();
@@ -73,27 +73,6 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use('/', router);
-
-router.get("/", (req, res) => {
-    res.render("index");
-});
-
-
-router.get("/", homeController.index);
-router.get("/pokemons", homeController.pokemon);
-
-router.get("/register", userController.register);
-router.get("/login", userController.login);
-
-router.get("/logout", userController.logout, userController.redirectView);
-router.post("/user/login", userController.authenticate);
-router.put("/user/:user_id/pokemon/:id", userController.addPokemon, userController.redirectView);
-
-router.post("/register/create", userController.create, userController.redirectView);
-
-router.get("/edit", userController.edit);
-router.put("/:id/update", userController.update, userController.redirectView);
-router.get("/profile", userController.showView);
 
 app.listen(app.get("port"), () => {
     console.log(`Server running listening to port ${app.get("port")}`);

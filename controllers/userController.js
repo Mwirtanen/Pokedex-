@@ -122,7 +122,7 @@ module.exports = {
         let userId = req.params.id;
         User.findByIdAndRemove(userId)
             .then(() => {
-                res.locals.redirect = `index`;
+                res.locals.redirect = `/index`;
                 next();
             })
             .catch(error => {
