@@ -1,22 +1,21 @@
 <div class="profile">
 <h2 class="header">Profile <br>
-    <%= currentUser.username %>
+    <%= user.username %>
 </h2>
 <div class="user">
     <table class="table">
         <tr>
             <th>Username:</th>
             <td>
-                <%= currentUser.username %>
+                <%= user.username %>
             </td>
         </tr>
         <tr>
             <th>Email:</th>
             <td>
-                <%= currentUser.email %>
+                <%= user.email %>
             </td>
         </tr>
-        <%= currentUser.pokemons %>
     </table>
 </div>
 <div class="buttons">
@@ -29,7 +28,7 @@
     </div>
     <div class="button">
         <button>
-            <a  href="<%= `/${currentUser._id}/delete?_method=DELETE` %>"
+            <a  href="<%= `/${user._id}/delete?_method=DELETE` %>"
                 onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
         </button>
     </div>
@@ -37,5 +36,12 @@
 </div>
 <div class="pokemons">
     <h1>My Pokemons</h1>
+        <% if(pokemons) { %> 
+        <% pokemons.forEach(pokemon => { %>
+        <% if(pokemon.type[0]) {var color = pokemon.type[0]; } else { var color = 'Normal';} %>
+        <%- include ('partials/pokemon', { pokemon: pokemon, color: colors[color]}); %>
+        <% }) %>
+        <% } else {  %>
     <p>Lists all pokemons of the user...</p>
+        <% } %>
 </div>

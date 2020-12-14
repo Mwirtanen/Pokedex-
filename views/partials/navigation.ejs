@@ -12,7 +12,7 @@
     <div class="topnav">
         <div class="leftnav">
             <h1 id="title">Pokede<span>X</span></h1>
-            <img src="images/<%= pokemon_left %>.png " alt="">
+            <img src="/images/<%= pokemon_left %>.png " alt="">
             <a href="/">Home</a>
             <a href="/pokemons?pokemons=1-5">Pokemons</a>
         </div>
@@ -22,10 +22,10 @@
                 <a href="/register"><i class="material-icons">&#xe890;</i>Register</a>
                 <a href="/login"><i class="material-icons">&#xe8a6;</i>Login</a>
                 <% } else { %>
-                <a href="/profile"><i class="material-icons">&#xe8a6;</i>Profile</a>
+                <a href="/profile/<%= currentUser.id %> "><i class="material-icons">&#xe8a6;</i>Profile</a>
                 <a href="/logout"><i class="material-icons logout">&#xe890;</i><%= currentUser.username %>  Logout</a>
                 <% } %> 
             </div>
-            <img src="images/<%= pokemon_right %>.png " alt="">
+            <img src="/images/<%= pokemon_right %>.png " alt="">
         </div>
     </div>

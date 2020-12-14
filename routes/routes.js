@@ -21,7 +21,7 @@ router.post("/user/login", userController.authenticate);
 router.put("/user/:user_id/pokemon/:id", userController.addPokemon, userController.redirectView);
     
 router.post("/register/create", userController.create, userController.redirectView);
-router.get("/profile", userController.showView);
+router.get("/profile/:id", userController.showView);
 
 router.get("/edit", userController.edit);
 router.put("/:id/update", userController.update, userController.redirectView);
