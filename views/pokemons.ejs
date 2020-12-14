@@ -51,6 +51,10 @@
     function pokemonFinder() {
         var pokemon = document.getElementById("search").value;
         var names = [];
+        if(pokemon.length < 1) {
+            $("#result").html("");
+            return;
+        }
         $(document).ready(() => {
             $("#result").html("");
             $.get("/pokemon?format=json", (data) => {
