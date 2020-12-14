@@ -58,7 +58,7 @@ module.exports = {
                         user.pokemons.push(pokemon)
                         user.save()
                         req.flash('success', 'Pokemon added successfully to your collection.')
-                        res.locals.redirect = '/profile';
+                        res.locals.redirect = `/profile/${user._id}`;
                         next()
                     })
             })
