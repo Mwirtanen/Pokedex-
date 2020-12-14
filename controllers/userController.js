@@ -160,7 +160,7 @@ module.exports = {
         let userId = req.params.id;
         User.findByIdAndRemove(userId)
             .then(() => {
-                res.locals.redirect = `/index`;
+                res.locals.redirect = `/`;
                 next();
             })
             .catch(error => {
