@@ -139,22 +139,21 @@ module.exports = {
         let userParams = {
             username: req.body.username,
             email: req.body.email,
-            password: req.body.password,
-            pokemons: req.body.pokemons
         };
 
-        User.findByIdAndUpdate(userId, {
-            $set: userParams
-        })
-            .then(user => {
-                res.locals.redirect = `/profile`;
+        User.findByUsername(req.body.email).then(user => {
+            user.setPassword(req.body.password, function() {
+                user.username = req.body.username;
+                user.email = req.body.email;
+                user.save();
+                res.locals.redirect = `/profile/${userId}`;
                 res.locals.user = user;
                 next();
             })
-            .catch(error => {
-                console.log(`Error updating user by ID: ${error.message}`);
-                next(error);
-            });
+        }).catch(e => {
+            console.log(e);
+            next(e);
+        });
     },
 
     delete: (req, res, next) => {
