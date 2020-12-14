@@ -50,13 +50,16 @@
 <script type="text/javascript">
     function pokemonFinder() {
         var pokemon = document.getElementById("search").value;
+        var names = [];
         $(document).ready(() => {
             $("#result").html("");
             $.get("/pokemon?format=json", (data) => {
-                var names = data.find((data) => data.name === pokemon); 
-                    $("#result").append(
-                       "<p>" + names.name + "</p>"
-                    )                    
+                names = data.filter((data) => data.name.includes(pokemon));
+                console.log(names);
+                names.forEach(item => {    
+                    $("#result").append( 
+                       "<p>" + item.name + "</p>"
+                    )})                    
                 });
             });
     }
