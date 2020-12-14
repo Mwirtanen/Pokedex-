@@ -37,5 +37,19 @@ module.exports = {
         Pokemon.find().where('pokemon_index').in(index_array).exec((err, records) => {
             res.render("pokemons", {pokemons: records, colors: colors});
         });
+    },
+    pokemons: (req, res, next) => {
+        Pokemon.find({})
+        .then(pokemons => {
+            res.locals.pokemons = pokemons;
+            next();
+        })
+        .catch(error => {
+            console.log(`${error.message}`);
+            next(error);
+        });
+    },
+    pokemonView: (req, res) => {
+        res.json(res.locals.pokemons);
     }
 };

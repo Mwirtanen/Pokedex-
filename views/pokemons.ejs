@@ -1,7 +1,8 @@
 <div class="pokemons-page">
     <div class="search">
         <h1>Search</h1>
-        <input type="text" onchange="" />
+        <input id="search" type="text" onkeyup="pokemonFinder()"/>
+        <div id="result"></div>
     </div>
     <div class="cards">
         <% pokemons.forEach(pokemon => { %>
@@ -46,3 +47,17 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    function pokemonFinder() {
+        var pokemon = document.getElementById("search").value;
+        $(document).ready(() => {
+            $("#result").html("");
+            $.get("/pokemon?format=json", (data) => {
+                var names = data.find((data) => data.name === pokemon); 
+                    $("#result").append(
+                       "<p>" + names.name + "</p>"
+                    )                    
+                });
+            });
+    }
+</script>
