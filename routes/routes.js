@@ -1,18 +1,12 @@
-const { use } = require(".");
-const user = require("../models/user");
-
 const router = require("express").Router(),
     homeController = require("../controllers/homeController"),
     userController = require("../controllers/userController");
-
-router.get("/", (req, res) => {
-    res.render("index");
-});
-    
     
 router.get("/", homeController.index);
 router.get("/pokemons", homeController.pokemon);
-    
+
+router.get("/pokemon", homeController.pokemons, homeController.pokemonView);
+
 router.get("/register", userController.register);
 router.get("/login", userController.login);
   
@@ -26,6 +20,5 @@ router.get("/profile/:id", userController.showView);
 router.get("/edit", userController.edit);
 router.put("/:id/update", userController.update, userController.redirectView);
 router.delete("/:id/delete", userController.delete, userController.redirectView);
-
 
 module.exports = router;
