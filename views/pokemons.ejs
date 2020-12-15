@@ -48,23 +48,35 @@
     </div>
 </div>
 <script type="text/javascript">
+    var pokemons_to_search = []
+
     function pokemonFinder() {
         var pokemon = document.getElementById("search").value;
         var names = [];
+        pokemons_to_search = []
         if(pokemon.length < 1) {
             $("#result").html("");
+            document.getElementById('result').style.visibility = 'hidden';
             return;
-        }
-        $(document).ready(() => {
+        } else {
+            $(document).ready(() => {
             $("#result").html("");
             $.get("/pokemon?format=json", (data) => {
                 names = data.filter((data) => data.name.includes(pokemon));
-                console.log(names);
-                names.forEach(item => {    
-                    $("#result").append( 
+                names.forEach(item => {
+                    pokemons_to_search.push(item.pokemon_index);
+                    $("#result").append(
                        "<p>" + item.name + "</p>"
                     )})                    
                 });
             });
+            document.getElementById('result').style.visibility = 'visible';
+        } 
     }
+    let search = document.getElementById('search').addEventListener('keydown', function(e){
+        if(e.keyCode === 13) {
+            pokemons_to_search = pokemons_to_search.join('+')
+            window.location.href = `/pokemons?pokemons=${pokemons_to_search}`;
+        }
+    })
 </script>

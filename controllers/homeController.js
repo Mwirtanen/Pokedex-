@@ -29,12 +29,22 @@ module.exports = {
     pokemon: (req, res) => {
         let index_array = [];
         let pokemons_from_to = req.query.pokemons;
-        pokemons_from_to = pokemons_from_to.split('-')
-        res.locals.from_to = pokemons_from_to;
-        for(let i = parseInt(pokemons_from_to[0]); i<= parseInt(pokemons_from_to[1]); i++){
+        if(/-/.test(pokemons_from_to)) {
+            pokemons_from_to = pokemons_from_to.split('-')
+            res.locals.from_to = pokemons_from_to;
+            for(let i = parseInt(pokemons_from_to[0]); i<= parseInt(pokemons_from_to[1]); i++){
             index_array.push(i);
         }
+        } else if(/ /.test(pokemons_from_to)) {
+            pokemons_from_to = pokemons_from_to.split(' ');
+            res.locals.from_to = [1, 2];
+            pokemons_from_to.forEach(x => {
+                index_array.push(parseInt(x));
+            });
+            console.log(index_array)
+        }
         Pokemon.find().where('pokemon_index').in(index_array).exec((err, records) => {
+            console.log(records)
             res.render("pokemons", {pokemons: records, colors: colors});
         });
     },
