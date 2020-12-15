@@ -42,7 +42,10 @@ module.exports = {
                 index_array.push(parseInt(x));
             });
             console.log(index_array)
-        }
+        } else if(!isNaN(parseInt(pokemons_from_to))) {
+            res.locals.from_to = [1, 2];
+            index_array.push(parseInt(pokemons_from_to));
+        } 
         Pokemon.find().where('pokemon_index').in(index_array).exec((err, records) => {
             console.log(records)
             res.render("pokemons", {pokemons: records, colors: colors});
