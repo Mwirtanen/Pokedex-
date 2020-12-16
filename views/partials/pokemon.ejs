@@ -46,7 +46,7 @@
     display: block;
     position: relative;
     width: 94%;
-    top: 29%;
+    top: -20%;
     z-index: 100;
     visibility: hidden;;
     margin: auto;" id="<%=`add_button${pokemon.pokemon_index}` %>">
@@ -63,7 +63,7 @@
     document.getElementById('<%= `pokemon_${pokemon.pokemon_index}` %>').addEventListener('click', showAddButton);
     function showAddButton() {
         let button = document.getElementById('<%= `add_button${pokemon.pokemon_index}` %>');
-        if(button.style.visibility == 'hidden')
+        if(button.style.visibility == 'hidden' && !/profile/.test(window.location.href))
             button.style.visibility = 'visible';
         else
             button.style.visibility = 'hidden'
