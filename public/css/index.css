@@ -331,7 +331,7 @@ button:hover {
         padding: 0;
     }
 }
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 450px) {
     #nav-img-1 {
         display: none;
     }
