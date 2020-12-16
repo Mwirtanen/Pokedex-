@@ -70,6 +70,23 @@ button:hover {
 .disabled:hover {
     cursor: no-drop;
 }
+#result {
+    width: 100%;
+    text-align: center;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    overflow-y: scroll;
+    max-height: 200px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    -webkit-box-shadow: 0px 10px 13px -7px #000000,
+        5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: 0px 10px 13px -7px #000000,
+        5px 5px 15px 5px rgba(0, 0, 0, 0);
+    visibility: hidden;
+        color: darkslategray;
+}
 /* Flash Messages */
 .flash-success {
     background-color: lightgreen;
@@ -189,7 +206,18 @@ button:hover {
     transform: rotate(180deg);
 }
 .material-icons {
-    margin-right: 5px;;
+    margin-right: 5px;
+}
+.dropdown-menu {
+    background-color: #13547a;
+    float: right;
+}
+.responsive-menu {
+    display: none;
+}
+.responsive-menu a, .responsive-menu i {
+    text-decoration: none;
+    color: #fff;
 }
 /* Footer */
 .footer {
@@ -207,21 +235,26 @@ button:hover {
 #footer i {
     vertical-align: middle;
 }
-#result {
-    width: 100%;
-    text-align: center;
-    border-left: 1px solid;
-    border-right: 1px solid;
-    border-bottom: 1px solid;
-    overflow-y: scroll;
-    max-height: 200px;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-    -webkit-box-shadow: 0px 10px 13px -7px #000000,
-        5px 5px 15px 5px rgba(0, 0, 0, 0);
-    box-shadow: 0px 10px 13px -7px #000000,
-        5px 5px 15px 5px rgba(0, 0, 0, 0);
-    visibility: hidden;
-        color: darkslategray;
-}
 
+/* RESPONSIVE */
+@media only screen and (max-width: 800px) {
+    #nav-img-2 {
+        display: none;
+    }
+    .leftnav a, .rightnav a {
+        display: none;
+    }
+    .responsive-menu {
+        display: block;
+    }
+    #menu {
+        float: right;
+        display: block;
+    }
+    #close {
+        display: none;
+    }
+    #title {
+        margin-right: 5px;
+    }
+}

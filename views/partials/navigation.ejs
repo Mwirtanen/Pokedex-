@@ -12,13 +12,13 @@
     <div class="topnav">
         <div class="leftnav">
             <h1 id="title">Pokede<span>X</span></h1>
-            <img src="/images/<%= pokemon_left %>.png " alt="">
-            <a href="/">Home</a>
+            <img id="nav-img-1" src="/images/<%= pokemon_left %>.png " alt="">
+            <a id="home-button" href="/">Home</a>
             <a href="/pokemons?pokemons=1-5">Pokemons</a>
         </div>
         <div class="rightnav">
             <div class="righttext">
-                <% if(!loggedIn) { %>
+                <% if(!loggedIn) { %>                   
                 <a href="/register"><i class="material-icons">&#xe890;</i>Register</a>
                 <a href="/login"><i class="material-icons">&#xe8a6;</i>Login</a>
                 <% } else { %>
@@ -26,6 +26,43 @@
                 <a href="/logout"><i class="material-icons logout">&#xe890;</i><%= currentUser.username %>  Logout</a>
                 <% } %> 
             </div>
-            <img src="/images/<%= pokemon_right %>.png " alt="">
+            <img id="nav-img-2" src="/images/<%= pokemon_right %>.png " alt="">
+        </div>
+
+        <div class="responsive-menu">
+        <ul id="dropdown-menu" style="display:none">
+        <a href="/">Home</a>
+        <a href="/pokemons?pokemons=1-5">Pokemons</a>
+        <% if(!loggedIn) { %>                   
+        <a href="/register">Register</a>
+        <a href="/login">Login</a>
+        <% } else { %>
+        <a href="/profile/<%= currentUser.id %> ">Profile</a>
+        <a href="/logout"><%= currentUser.username %>  Logout</a>
+        <% } %>
+        </ul> 
+        <!--Responsive menu button-->
+        <a href="javascript:void(0);" id="menu" class="icon">
+            <i class="material-icons">&#xe5d2;</i>
+        </a>
+        <a id="close">
+            <i class="material-icons">&#xe5cd;</i>
+        </a>
         </div>
     </div>
+    <script>
+        $('#menu').click(function () {
+            $('#dropdown-menu').css('display', 'flex');
+            $('#dropdown-menu').css('flex-direction', 'column');
+            $('#nav-img-1').css('display', 'none');
+            $('#close').css('display', 'block');
+            $('#close').css('float', 'right');
+            $('#menu').css('display','none');
+        });
+        $('#close').click(function () {
+            $('#dropdown-menu').css('display', 'none');
+            $('#nav-img-1').css('display', 'flex');
+            $('#close').css('display', 'none');
+            $('#menu').css('display','block');
+        })
+    </script>
