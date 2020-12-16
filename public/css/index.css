@@ -53,9 +53,11 @@ button:hover {
     align-items: center;
     padding-bottom: 25px;
     z-index: 10;
+    width: 50em;
+    margin: auto;
 }
 #search {
-    width: 50em;
+    width: 100%;
 }
 .pokemons-page {
     display: flex;
