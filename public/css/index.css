@@ -54,6 +54,9 @@ button:hover {
     padding-bottom: 25px;
     z-index: 10;
 }
+#search {
+    width: 50em;
+}
 .pokemons-page {
     display: flex;
     justify-content: center;
@@ -299,6 +302,9 @@ button:hover {
     .button {
         vertical-align: middle;
     }
+    #search {
+        width: 50%;
+    }
 }
 @media only screen and (max-width: 800px) {
     #nav-img-2 {
@@ -320,6 +326,7 @@ button:hover {
     #title {
         margin-right: 5px;
     }
+
 }
 @media only screen and (max-width: 740px) {
     .collection {
