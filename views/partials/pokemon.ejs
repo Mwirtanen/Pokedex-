@@ -1,5 +1,7 @@
 <div class="pokemoncard" style="background: <%= color[1] %>; background: linear-gradient(180deg, <%= color[2] %> 0%, <%= color[3] %> 100%);" id="<%= `pokemon_${pokemon.pokemon_index}` %>">
+    <span class="pokemon_type"><%= pokemon.type[0] %></span>
     <div class="pokemonheader">
+       
     <span><%= pokemon.name.slice(0,1).toUpperCase()+pokemon.name.slice(1) %> </span><span>HP <%= pokemon.base.hp %> </span>
 
     </div>
@@ -12,7 +14,32 @@
         <img src="/images/<%= number %>.png" alt="">
     </div>
     <div class="pokemonmain">
-       <%=    pokemon.type[0] %>
+        <div class="attack">
+            <span>Attack</span>
+            <span><%= pokemon.base.attack %></span>
+        </div>
+        <div class="defence">
+            <span>Defence</span>
+            <span><%= pokemon.base.defence %></span>
+        </div>
+    </div>
+    <hr>
+    <div class="pokemonmain_special">
+        <div class="attack">
+            <span>Special Attack</span>
+            <span><%= pokemon.base.sp_attack %></span>
+        </div>
+        <div class="defence">
+            <span>Special Defence</span>
+            <span><%= pokemon.base.sp_defence %></span>
+        </div>
+    </div>
+    <hr>
+    <div class="pokemonmain_special">
+        <div class="speed">
+            <span>Speed</span>
+            <span><%= pokemon.base.speed %></span>
+        </div>
     </div>
     <% if(currentUser) { %>
     <div class="button" style="
@@ -59,7 +86,7 @@
     }
     .pokemonheader {
         position: relative;
-        top: 5%;
+        top: 0%;
         left: 10%;
         width: 80%;
         display: flex;
@@ -68,7 +95,7 @@
     .pokemonimg {
         position: relative;
         left: 10%;
-        top: 5%;
+        top: 0%;
         display: block;
         -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
         box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
@@ -82,16 +109,47 @@
         width: 50%;
     }
     .pokemonmain {
-        display: block;
-        border: 2px;
-        border-radius: 2px;
-
+        display: flex;
+        left: 10%;
+        top: 3%;
+        width: 80%;
+        justify-content: space-around;
+        position: relative;
+        margin-bottom: 25px;
     }
-
+    .pokemonmain span {
+        display: block;
+        text-align: center;
+    }
+    
+    .pokemonmain_special {
+        display: flex;
+        left: 10%;
+        top: 1.5%;
+        width: 90%;
+        justify-content: space-around;
+        position: relative;
+        margin-bottom: 23px;
+    }
+    .pokemonmain_special span {
+        display: block;
+        text-align: center;
+    }
     .pokemoncard:hover{
         border-color: teal;
     }
-
+    .pokemon_type {
+        font-size: 0.7em;
+        font-weight: 300;
+        position: relative;
+        left: 10%;
+        z-index: 1;
+    }
+    hr{
+        width: 90%;
+        border: 0px;
+        border-bottom: 1px dashed white;
+    }
 
 
 </style>
