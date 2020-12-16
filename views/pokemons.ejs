@@ -63,16 +63,22 @@
             $("#result").html("");
             $.get("/pokemon?format=json", (data) => {
                 names = data.filter((data) => data.name.includes(pokemon));
+                if (pokemon.length > 1 && names.length === 0) {
+                    $("#result").append(
+                        "<p>No results</p>"
+                    )
+                } else {
                 names.forEach(item => {
                     pokemons_to_search.push(item.pokemon_index);
                     $("#result").append(
-                       "<p>" + item.name + "</p>"
-                    )})                    
+                       "<p>"+item.name+"</p>"
+                    )                    
                 });
+            }
             });
             document.getElementById('result').style.visibility = 'visible';
-        } 
-    }
+        });
+    }}
     let search = document.getElementById('search').addEventListener('keydown', function(e){
         if(e.keyCode === 13) {
             pokemons_to_search = pokemons_to_search.join('+')
