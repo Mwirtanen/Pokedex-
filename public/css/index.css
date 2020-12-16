@@ -71,7 +71,10 @@ button:hover {
     cursor: no-drop;
 }
 .cards {
+    display: flex;
+    flex-wrap: wrap;
     padding: 15px;
+    justify-content: center;
 }
 #result {
     width: 100%;
@@ -110,14 +113,26 @@ button:hover {
     padding-bottom: 20px;
 }
 /* Profile */
+.profile-info {
+    display: flex;
+    flex-direction: row;
+}
 .profile {
     display: flex;
     float: left;
     flex-direction: column;
     width: 25%;
-    max-width: 200px;
     padding: 25px;
     flex-wrap: wrap;
+    max-width: 500px;
+}
+.pokemons {
+    padding: 20px;
+    flex: 2;
+}
+.collection {
+    display: flex;
+    justify-content: center;
 }
 .profile div, .table td, .table th, .button {
     padding-bottom: 20px;
@@ -127,6 +142,9 @@ button:hover {
 }
 .table {
     text-align: left;
+}
+.buttons {
+    align-self: center;
 }
 /* Navigation */
 #title {
@@ -240,6 +258,39 @@ button:hover {
 }
 
 /* RESPONSIVE */
+@media only screen and (max-width: 1100px) {
+    .profile-info {
+        flex-direction: column;
+    }
+    .profile {
+        float: none;
+        justify-content: center;
+        align-content: center;
+        max-width: none;
+        width: auto;
+    }
+    .user-info {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        padding: 15px;
+    }
+    .user {
+        align-content: center;
+        flex-direction: column;
+        padding: 15px;
+    }
+    .buttons {
+        align-content: center;
+        flex-direction: column;
+        padding: 15px;
+    }
+    #delete-button {
+        height: 58.4px;
+    }
+    .button {
+        vertical-align: middle;
+    }
+}
 @media only screen and (max-width: 800px) {
     #nav-img-2 {
         display: none;
@@ -259,6 +310,19 @@ button:hover {
     }
     #title {
         margin-right: 5px;
+    }
+}
+@media only screen and (max-width: 740px) {
+    .collection {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media only screen and (max-width: 460px) {
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
     }
 }
 @media only screen and (max-width: 350px) {
