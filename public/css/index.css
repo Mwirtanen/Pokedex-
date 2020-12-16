@@ -346,3 +346,31 @@ button:hover {
         display: none;
     }
 }
+@media only screen and (max-width: 360px) {
+    .pokemons-page {
+        overflow: auto;
+    }
+    .button-group {
+        display: flex;
+        flex-direction: column;
+    }
+    .footer p {
+        font-size: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .footer i {
+        font-size: 10px;
+    }
+    .pokemons {
+        padding:0;
+    }
+    .collection {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+    }
+    .cards {
+        padding: 0;
+    }
+}
