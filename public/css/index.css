@@ -42,6 +42,10 @@ button:hover {
     overflow: auto;
     flex: 1;
 }
+.submit-button {
+    display: flex;
+    justify-content: center;
+}
 /* Pokemon Page */
 .search {
     display: flex;
@@ -144,7 +148,8 @@ button:hover {
     text-align: left;
 }
 .buttons {
-    align-self: center;
+    display: flex;
+    flex-direction: column;
 }
 /* Navigation */
 #title {
