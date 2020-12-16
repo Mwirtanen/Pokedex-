@@ -53,17 +53,15 @@ button:hover {
     align-items: center;
     padding-bottom: 25px;
     z-index: 10;
-    width: 50em;
-    margin: auto;
 }
 #search {
-    width: 100%;
+    width: 50em;
 }
 .pokemons-page {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column;
     overflow: hidden;
 }
 .button {
@@ -85,7 +83,6 @@ button:hover {
 .cards {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
     padding: 15px;
     justify-content: center;
 }
