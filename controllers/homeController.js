@@ -37,17 +37,15 @@ module.exports = {
         }
         } else if(/ /.test(pokemons_from_to)) {
             pokemons_from_to = pokemons_from_to.split(' ');
-            res.locals.from_to = [1, 2];
+            res.locals.from_to = [1, 5];
             pokemons_from_to.forEach(x => {
                 index_array.push(parseInt(x));
             });
-            console.log(index_array)
         } else if(!isNaN(parseInt(pokemons_from_to))) {
-            res.locals.from_to = [1, 2];
+            res.locals.from_to = [1, 5];
             index_array.push(parseInt(pokemons_from_to));
         } 
         Pokemon.find().where('pokemon_index').in(index_array).exec((err, records) => {
-            console.log(records)
             res.render("pokemons", {pokemons: records, colors: colors});
         });
     },
