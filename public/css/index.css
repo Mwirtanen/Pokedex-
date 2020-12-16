@@ -70,6 +70,9 @@ button:hover {
 .disabled:hover {
     cursor: no-drop;
 }
+.cards {
+    padding: 15px;
+}
 #result {
     width: 100%;
     text-align: center;
@@ -256,5 +259,10 @@ button:hover {
     }
     #title {
         margin-right: 5px;
+    }
+}
+@media only screen and (max-width: 350px) {
+    #nav-img-1 {
+        display: none;
     }
 }
