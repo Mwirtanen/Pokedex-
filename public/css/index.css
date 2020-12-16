@@ -136,6 +136,7 @@ button:hover {
 }
 .collection {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 .profile div, .table td, .table th, .button {
